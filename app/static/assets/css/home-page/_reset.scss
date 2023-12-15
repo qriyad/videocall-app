@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    background-color: map-get($body-main , "body-color" );
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    margin-left: 3%;
+    margin-right: 3%;
+}

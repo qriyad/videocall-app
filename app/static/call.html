@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call</title>
+</head>
+<body>
+    <div id="join-call-container">
+        <input type="text" id="call-id" placeholder="Enter Call ID" />
+        <button id="join-call">Join Call</button>
+    </div>
+
+    <div id="video-call-container">
+        <video id="local-video" autoplay muted></video>
+        <video id="remote-video" autoplay></video>
+        <div id="call-controls">
+            <button id="start-call">Start Call</button>
+            <button id="end-call">End Call</button>
+            <button id="mute-audio">Mute</button>
+            <button id="mute-video">Disable Video</button>
+        </div>
+    </div>
+
+    <script src="call.js"></script>
+</body>
+</html>

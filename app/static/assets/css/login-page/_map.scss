@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap');
+
+$body-main : (
+    "font-roboto": Roboto,
+    "font-poppins": Poppins,
+    "font-plusjakarta": Plus Jakarta Sans,
+    "font-raleway": Raleway,
+    "body-color": #0D0F10,
+);
+
+$text-colors : (
+    "font-color-white-ff" : #FFF,
+    "font-color-white-solid" : #cfcfcf,
+    "font-color-header" : #A0A0A0,
+    "font-color-hero" : #FFF,
+    "font-color-h2-feedbacks": #CCC,
+    "font-color-footer-a": #8F8F8F,
+    "font-color-footer-span": #E3E3E3,
+    "font-color-solid-black": #A1A1A1,
+);
+
+$content-colors : (
+    "dark-btn" : #16141E,
+    "footer-dark" : #141617,
+);

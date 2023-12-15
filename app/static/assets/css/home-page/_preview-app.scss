@@ -1,0 +1,96 @@
+.preview-app {
+    width: 100%;
+    padding-bottom: 9rem;
+    background: url("../../images/Dark\,\ Metallic.svg"), url("../../images/Vector-right.svg"), linear-gradient(180deg, rgba(0, 0, 0, 0.00) 36.53%, rgba(113, 90, 224, 0.11) 99.8%), linear-gradient(0deg, rgba(113, 90, 224, 0.00) 31.11%, rgba(233, 100, 255, 0.22) 125.19%, rgba(233, 100, 255, 0.22) 125.19%);
+    background-repeat: no-repeat , no-repeat;
+    background-size: contain, auto;
+    background-position-y: center, center;
+    background-position-x: left, right;
+    animation: preview-background-anim;
+    animation-duration: 10s;
+}
+
+.preview-app_inner {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(10, 6.75rem);
+}
+
+.preview-app_inner_left {
+    grid-column: 1 / 6;
+    grid-row: 2 / 10;
+    @include flexBox(column, nowrap, space-between, start);
+    gap: 3rem;
+}
+
+.preview-app_inner_left_top_p {
+    width: 95%;
+    color: map-get($text-colors , "font-color-white-ff" );
+    font-family: map-get($body-main , "font-poppins" );
+    text-shadow: 0px 0px 4px rgba(233, 100, 255, 0.73);
+    font-size: 1.625rem;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.preview-app_inner_left_center {
+    width: 75%;
+    gap: 1.25rem;
+    @include flexBox(column, nowrap, space-between, start);
+}
+
+.preview-app_inner_left_center_box {
+    padding-left: 0.7rem;
+    @include flexBox(row, nowrap, flex-start, center);
+    gap: 0.7rem;
+    width: 100%;
+    background-color: map-get($content-colors , "dark-btn" );
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 2.9375rem;
+}
+
+.preview-app_inner_left_center_box_span {
+    font-family: map-get($body-main , "font-poppins" );
+    color: map-get($text-colors , "font-color-white-ff" );
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 300;   
+}
+
+.preview-app_inner_left_bottom_h2 {
+    font-family: map-get($body-main , "font-poppins" );
+    color: map-get($text-colors , "font-color-white-ff" );
+    text-shadow: 0px 0px 4px rgba(233, 100, 255, 0.73);
+    font-size: 2.9375rem;
+    font-weight: 600;
+}
+
+.preview-app_inner_left_bottom_p {
+    width: 95%;
+    font-family: map-get($body-main , "font-poppins" );
+    color: map-get($text-colors , "font-color-white-ff" );
+    text-shadow: 0px 0px 1px rgba(233, 100, 255, 0.73);
+    font-size: 1.0625rem;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.preview-app_inner_right_img1 {
+    grid-column: 8 / 11;
+    grid-row: 2 / -1;
+    width: 100%;
+}
+
+.preview-app_inner_right_img2 {
+    grid-column: 7 / 10;
+    grid-row: 4 / -1;
+    width: 100%;
+}
+
+.preview-app_inner_right_img3 {
+    grid-column: 8 / 11;
+    grid-row: 6 / -1;
+    width: 100%;
+}

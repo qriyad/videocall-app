@@ -1,0 +1,50 @@
+.main-header {
+  font-family: map-get($body-main , "font-poppins" );
+  background-color: map-get($body-main, "body-color");
+}
+
+.header-inner {
+  width: 100%;
+  @include flexBox (row,nowrap,space-between,center);
+  padding: 1.56rem 0;
+
+  .header-inner_nav-left {
+    @include flexBox (row,nowrap,flex-end,center);
+    gap: 3rem;
+
+    .header-inner_nav-left-lists {
+      @include flexBox(row,nowrap,space-between, center);
+      gap: 2rem;
+    }
+
+    .header-inner_nav-left-lists a {
+      font-family: map-get($body-main , "font-poppins" );
+      text-decoration: none;
+      color: map-get($text-colors , "font-color-header" );
+    }
+  }
+
+  .header-inner_nav-right {
+    width: 30%;
+    gap: 1.6rem;
+    @include flexBox (row,nowrap,flex-end,center);
+  }
+}
+
+.header-inner_nav-right_try_button {
+    font-family: map-get($body-main , "font-poppins" );
+    color: #A0A0A0;
+    text-align: center;
+    height: 2.0625rem;
+    width: 35%;
+    border: none;
+    border-radius: 0.5rem;
+    background: #141617;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.header-inner_nav-right_login_button {
+    font-family: map-get($body-main , "font-poppins" );
+    text-decoration: none;
+    color: map-get($text-colors , "font-color-header" );
+}

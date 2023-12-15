@@ -1,0 +1,84 @@
+.trending-destinations {
+    padding-top: 1.62rem;
+    padding-bottom: 7.52rem;
+    background: url("../../images/Icosahedron.svg"), url("../../images/Vector-trending.svg"), linear-gradient(180deg, rgba(113, 90, 224, 0.20) 0%, rgba(0, 0, 0, 0.00) 89.27%), linear-gradient(180deg, rgba(255, 255, 255, 0.00) 11.67%, rgba(113, 90, 224, 0.11) 100%);
+    background-repeat: no-repeat, no-repeat;
+    background-position-x: center, right;
+    background-position-y: center;
+}
+
+.trending-destinations_inner {
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+    @include flexBox(column, nowrap, center,center);
+    gap: 3.5rem
+}
+
+.trending-destinations_inner_top {
+    @include flexBox(column, nowrap, center, center);
+
+    .trending-destinations_inner_top_h2 {
+        font-family: map-get($body-main , "font-poppins" );
+        color: map-get($text-colors, "font-color-white-solid" );
+        font-size: 2.9375rem;
+        font-style: normal;
+        font-weight: 600;
+        text-shadow: 0px 0px 4px rgba(233, 100, 255, 0.73);
+    }
+}
+
+.trending-destinations_inner_center {
+    width: 100%;
+    @include flexBox(row, wrap, space-between, center);
+    row-gap: 3.25rem;
+}
+
+.trending-destinations_inner_center_large {
+    border-radius: 1rem;
+    box-shadow: 0px 4px 5px 0px rgba(224, 90, 170, 0.25), 0px 2px 11px 0px rgba(24, 172, 255, 0.30);
+    width: 40%;
+    height: 16.875rem;
+
+    &:nth-child(1) {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("./../../images/d9f7f67d1788e20c4566102007c93285.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    &:nth-child(2) {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("./../../images/20200607231728_9171619.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.trending-destinations_inner_center_middle {
+    width: 27%;
+    height: 16.25rem;
+    border-radius: 1rem;
+    box-shadow: 0px 4px 5px 0px rgba(224, 90, 170, 0.25), 0px 2px 11px 0px rgba(24, 172, 255, 0.30);
+}
+
+.trending-destinations_inner_bottom {
+    @include flexBox(column, nowrap, space-between, center);
+    gap: 1.4rem;
+    padding: 2.12rem 4.69rem;
+    width: 70%;
+    background-color: map-get($content-colors , "dark-btn" );
+    // box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    // box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    filter: drop-shadow(0px 4px 5px rgba(224, 90, 170, 0.25)) drop-shadow(0px 2px 11px rgba(24, 172, 255, 0.30));
+    border-radius: 0.5rem;
+    // height: 10.5625rem;
+    height: auto;
+
+    .trending-destinations_inner_bottom_p {
+        width: 90%;
+        text-align: center;
+        font-family: map-get($body-main , "font-poppins" );
+        font-size: 0.8125rem;
+        font-style: normal;
+        font-weight: 300;
+        color: map-get($text-colors, "font-color-white-ff" );
+    }
+}

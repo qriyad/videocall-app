@@ -1,0 +1,102 @@
+.main-footer {
+    height: auto;
+    width: 100%;
+    background-color: map-get($content-colors , "footer-dark" );
+}
+
+.main-footer_inner {
+    padding-top: 4.38rem;
+    padding-bottom: 0.62rem;
+    @include flexBox(column, nowrap, space-between, flex-start);
+    gap: 3.25rem;
+}
+
+.main-footer_inner_top {
+    padding: 0 3.7rem;
+    width: 100%;
+    @include flexBox(row, nowrap, space-between, flex-start);
+}
+
+.main-footer_inner_top_company_table {
+    @include flexBox(column, nowrap, flex-start, start);
+    gap: 0.25rem;
+
+    .main-footer_inner_top_company_table_h2 {
+        color: map-get($text-colors , "font-color-white-ff" );
+        font-family: map-get($body-main , "font-roboto" );
+        font-size: 1.0625rem;
+        font-style: normal;
+        font-weight: 500;
+    }
+
+    .main-footer_inner_top_company_table_unordered a {
+        text-decoration: none;
+        font-family: map-get($body-main , "font-poppins" );
+        font-size: 0.9375rem;
+        font-style: normal;
+        font-weight: 300;
+        color: map-get($text-colors , "font-color-footer-a" );
+    }
+}
+
+.main-footer_inner_top_expobaku_table {
+    @include flexBox(column, nowrap, flex-start, start);
+    gap: 0.25rem;
+
+    .main-footer_inner_top_company_table_h2 {
+        color: map-get($text-colors , "font-color-white-ff" );
+        font-family: map-get($body-main , "font-roboto" );
+        font-size: 1.0625rem;
+        font-style: normal;
+        font-weight: 500;
+    }
+
+    .main-footer_inner_top_expobaku_table_unordered a {
+        text-decoration: none;
+        font-family: map-get($body-main , "font-poppins" );
+        font-size: 0.9375rem;
+        font-style: normal;
+        font-weight: 300;
+        color: map-get($text-colors , "font-color-footer-a" );
+    }
+}
+
+.main-footer_inner_top_social_table {
+    @include flexBox(column, nowrap, flex-start, start);
+    gap: 0.25rem;
+
+    .main-footer_inner_top_social_table_h2 {
+        color: map-get($text-colors , "font-color-white-ff" );
+        font-family: map-get($body-main , "font-roboto" );
+        font-size: 1.0625rem;
+        font-style: normal;
+        font-weight: 500;
+    }
+
+    .main-footer_inner_top_social_table_unordered a {
+        text-decoration: none;
+        font-family: map-get($body-main , "font-poppins" );
+        font-size: 0.9375rem;
+        font-style: normal;
+        font-weight: 300;
+        color: map-get($text-colors , "font-color-footer-a" );
+    }
+}
+
+.main-footer_inner_bottom {
+    @include flexBox(row, nowrap, center, center);
+    width: 100%;
+    font-family: map-get($body-main , "font-poppins" );
+    text-align: center;
+    font-size: 0.86rem;
+    font-style: normal;
+    font-weight: 300;
+    color: map-get($text-colors , "font-color-footer-span" );
+
+    .main-footer_inner_bottom_copyright_expobaku_text {
+        background: var(--linear, linear-gradient(180deg, rgba(255, 150, 251, 0.69) 0%, rgba(188, 143, 234, 0.69) 100%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}

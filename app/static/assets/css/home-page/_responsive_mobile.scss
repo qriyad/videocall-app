@@ -1,0 +1,241 @@
+@media (max-width: 640px) {
+    .header-inner .header-inner_nav-left .header-inner_nav-left-lists {
+        display: none;
+    }
+
+    .header-inner .header-inner_nav-right {
+        width: 60%;
+    }
+
+    .hero-inner {
+        width: auto;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5rem;
+    }
+
+    .hero-inner_left {
+        width: auto;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-inner_left_p {
+        width: auto;
+        height: auto;
+        text-align: center;
+    }
+
+    .hero-inner_left_button {
+        width: 60%;
+    }
+
+    .hero-inner_right {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-inner_right img {
+        width: 80%;
+        height: 80%;
+    }
+
+    .hero-inner_left_h1 {
+        text-align: center;
+        width: auto;
+        height: auto;
+    }
+
+    .preview-app {
+        background: url("../../images/Dark, Metallic.svg"), linear-gradient(180deg, rgba(0, 0, 0, 0) 36.53%, rgba(113, 90, 224, 0.11) 99.8%), linear-gradient(0deg, rgba(113, 90, 224, 0) 31.11%, rgba(233, 100, 255, 0.22) 125.19%, rgba(233, 100, 255, 0.22) 125.19%);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position-y: center;
+    }
+
+
+
+    .preview-app_inner {
+        width: auto;
+        height: auto;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto auto auto;
+    }
+
+    .preview-app_inner_left {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        width: auto;
+        height: auto;
+        padding-bottom: 8rem;
+        align-items: center;
+    }
+
+    .preview-app_inner_right_img1 {
+        grid-row:  2 / 3;
+        grid-column: 1 / 5;
+    }
+
+    .preview-app_inner_left_top_p {
+        width: auto;
+        height: auto;
+        text-align: center;
+    }
+
+    .preview-app_inner_left_top {
+        width: auto;
+        height: auto;
+    }
+
+    .preview-app_inner_left_top > img {
+        width: 100%;
+        height: auto;
+    }
+
+    .preview-app_inner_right_img3 {
+        grid-row: 3 / 4;
+        grid-column: 2 / 6;
+    }
+
+    .preview-app_inner_right_img2 {
+        grid-row: 4 / 5;
+        grid-column: 1 / 5;
+    }
+
+    .feedbacks {
+        width: auto;
+        height: auto;
+    }
+
+    .feedbacks_inner_bottom {
+        width: auto;
+        height: auto;
+    }
+
+    .feedbacks_inner_bottom_user_box {
+        width: auto;
+        height: auto;
+    }
+
+    .feedbacks_inner {
+        width: auto;
+        height: auto;
+    }
+
+    .feedbacks_inner_top {
+        width: auto;
+        height: auto;
+    }
+
+    .feedbacks_inner_top img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .trending-destinations_inner {
+        width: auto;
+        height: auto;
+    }
+
+    .trending-destinations_inner_top {
+        width: auto;
+        height: auto;
+    }
+
+    .trending-destinations_inner_top .trending-destinations_inner_top_h2 {
+        text-align: center;
+        width: auto;
+        height: auto;
+    }
+
+    .trending-destinations_inner_top img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .trending-destinations_inner_center {
+        height: auto;
+    }
+
+    .trending-destinations_inner_bottom {
+        width: auto;
+        height: auto;
+    }
+
+    .main-footer_inner {
+        width: auto;
+        height: auto;
+    }
+
+    .main-footer_inner_top {
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: 0;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .main-footer_inner_top_company_table {
+        align-items: center;
+    }
+
+    .main-footer_inner_top_company_table_unordered {
+        text-align: center;
+    }
+
+    .main-footer_inner_top_expobaku_table {
+        align-items: center;
+    }
+
+    .main-footer_inner_top_expobaku_table_unordered {
+        text-align: center;
+    }
+
+    .main-footer_inner_top_expobaku_table .main-footer_inner_top_company_table_h2 {
+        align-items: center;
+    }
+
+    .main-footer_inner_top_social_table {
+        align-items: center;
+    }
+
+    .main-footer_inner_top_social_table_unordered {
+        text-align: center;
+    }
+
+    .preview-app_inner_left_bottom {
+        width: auto;
+        height: auto;
+    }
+
+    .preview-app_inner_left_bottom > img {
+        width: 100%;
+        height: auto;
+    }
+
+    .preview-app_inner_left_center {
+        width: auto;
+        height: auto;
+    }
+
+    .preview-app_inner_left_center_box {
+        width: 100%;
+    }
+
+    .preview-app_inner_left_bottom_h2 {
+        width: auto;
+        height: auto;
+        text-align: center;
+    }
+
+    .preview-app_inner_left_bottom_p {
+        width: auto;
+        height: auto;
+        text-align: center;
+    }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <button id="custom-button">Select Image</button>
+        <input type="file" id="hidden-file-input" style="display: none;" accept="image/*" />
+        <div id="image-display"></div>
+
+        <script src='app.js'></script>
+        <style>
+            #image-display img {
+                width: 512px;
+                height: 512px;
+                border-radius: 50%;  /* Makes the image circular */
+                object-fit: cover;   /* Ensures the image covers the area without distortion */
+            }              
+        </style>
+    </body>
+</html>
