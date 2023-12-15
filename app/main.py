@@ -5,8 +5,6 @@ from sqlalchemy import create_engine, func
 from sqlalchemy.orm import sessionmaker, Session
 from pydantic import BaseModel
 import models
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
 from auth import get_password_hash, create_access_token, verify_password,verify_token
@@ -17,9 +15,8 @@ app = FastAPI()
 origins = [ 
     "http://localhost",
     "http://localhost:3000",
-    "http://192.168.0.103:3000",
+    "http://192.168.0.140:3000",
 ]
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
