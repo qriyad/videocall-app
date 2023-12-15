@@ -10,6 +10,7 @@ from fastapi.responses import FileResponse
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
 from auth import get_password_hash, create_access_token, verify_password,verify_token
+from starlette.websockets import WebSocketState
 
 app = FastAPI()
 
@@ -201,19 +202,63 @@ async def end_call(call_id: int, db: Session = Depends(get_db)):
         return {"message": "Call ended"}
     else:
         raise HTTPException(status_code=404, detail="Call not found")
-    
+
+class ConnectionManager:
+    def __init__(self):
+        self.active_connections: Dict[int, Dict[str, WebSocket]] = {}
+
+    async def connect(self, websocket: WebSocket, call_id: int, username: str):
+        await websocket.accept()
+        if call_id not in self.active_connections:
+            self.active_connections[call_id] = {}
+        self.active_connections[call_id][username] = websocket
+        await self.broadcast_user_list(call_id)
+
+    async def disconnect(self, websocket: WebSocket, call_id: int):
+        if call_id in self.active_connections:
+            user_to_remove = [user for user, ws in self.active_connections[call_id].items() if ws == websocket]
+            for user in user_to_remove:
+                del self.active_connections[call_id][user]
+
+            if not self.active_connections[call_id]:
+                del self.active_connections[call_id]
+            else:
+                await self.broadcast_user_list(call_id)
+
+    async def broadcast_user_list(self, call_id: int):
+        user_list = list(self.active_connections[call_id].keys())
+        disconnected_websockets = []
+        for username, conn in self.active_connections[call_id].items():
+            if not conn.client_state == WebSocketState.DISCONNECTED:
+                try:
+                    await conn.send_json({"type": "user_list", "users": user_list})
+                except RuntimeError:
+                    disconnected_websockets.append(conn)
+        for conn in disconnected_websockets:
+            user_to_remove = [user for user, ws in self.active_connections[call_id].items() if ws == conn]
+            for user in user_to_remove:
+                del self.active_connections[call_id][user]
+
 def check_meeting_exists(call_id: int, db: Session) -> bool:
     return db.query(models.Call).filter(models.Call.id == call_id).first() is not None
 
+connection_manager = ConnectionManager()
+
 @app.websocket("/ws/{call_id}")
 async def websocket_endpoint(websocket: WebSocket, call_id: int, token: str = Query(...), db: Session = Depends(get_db)):
+    user = await get_current_user(db, token)
+    if not user:
+        await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
+        return
+
     if not check_meeting_exists(call_id, db):
         await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
         return
 
-    await websocket.accept()
+    await connection_manager.connect(websocket, call_id, user.username)
+
     try:
         while True:
             data = await websocket.receive_text()
     except WebSocketDisconnect:
-        print(f"Client disconnected from call {call_id}")
+        connection_manager.disconnect(websocket, call_id)

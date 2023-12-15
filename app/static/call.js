@@ -6,7 +6,7 @@ const configuration = {'iceServers': [{'urls': 'stun:stun.l.google.com:19302'}]}
 const localVideo = document.getElementById('local-video');
 const remoteVideo = document.getElementById('remote-video');
 
-const serverUrl = 'ws://192.168.0.103:8000/ws';
+const serverUrl = 'ws://127.0.0.1:8000/ws';
 let ws;
 
 async function joinMeeting() {
@@ -33,7 +33,9 @@ async function joinMeeting() {
     ws.onmessage = async (message) => {
         const data = JSON.parse(message.data);
 
-        if (data.answer) {
+        if (data.type === 'user_list') {
+            updateUserListUI(data.users);
+        } else if (data.answer) {
             await peerConnection.setRemoteDescription(new RTCSessionDescription(data.answer));
         } else if (data.offer) {
             await peerConnection.setRemoteDescription(new RTCSessionDescription(data.offer));
@@ -54,17 +56,20 @@ async function joinMeeting() {
     };
 }
 
+function updateUserListUI(users) {
+    const userListDiv = document.getElementById('user-list');
+    userListDiv.innerHTML = ''; 
+
+    users.forEach(user => {
+        const userElement = document.createElement('div');
+        userElement.textContent = user; 
+        userListDiv.appendChild(userElement);
+    });
+}
+
 async function initializePeerConnection() {
-    console.log('navigator.mediaDevices:', navigator.mediaDevices); // Debugging line
-
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        alert('Your browser does not support the mediaDevices API or getUserMedia.');
-        console.error('mediaDevices API or getUserMedia is not supported in this browser.');
-        return;
-    }
     try {
-        localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-
+        localStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: true });
         localVideo.srcObject = localStream;
 
         peerConnection = new RTCPeerConnection(configuration);
@@ -91,6 +96,31 @@ async function initializePeerConnection() {
         console.error('Error accessing media devices:', error);
         alert('Could not access the camera or microphone. Please check permissions.');
     }
+}
+
+async function enableVideo() {
+    try {
+        const videoStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        localStream = videoStream;
+        localVideo.srcObject = localStream;
+
+        localStream.getTracks().forEach(track => {
+            peerConnection.addTrack(track, localStream);
+        });
+
+        broadcastNewStream();
+    } catch (error) {
+        console.error('Error accessing video devices:', error);
+        alert('Could not access the camera. Please check permissions.');
+    }
+}
+
+function broadcastNewStream() {
+    peerConnection.createOffer().then(offer => {
+        return peerConnection.setLocalDescription(offer);
+    }).then(() => {
+        ws.send(JSON.stringify({'offer': peerConnection.localDescription}));
+    });
 }
 
 
@@ -134,6 +164,7 @@ function toggleMuteVideo() {
 
 document.getElementById('join-call').addEventListener('click', joinMeeting);
 document.getElementById('start-call').addEventListener('click', startCall);
+document.getElementById('enable-video').addEventListener('click', enableVideo);
 document.getElementById('end-call').addEventListener('click', endCall);
 document.getElementById('mute-audio').addEventListener('click', toggleMuteAudio);
 document.getElementById('mute-video').addEventListener('click', toggleMuteVideo);
